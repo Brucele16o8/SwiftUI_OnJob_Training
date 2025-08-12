@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SplashScreen: View {
+  let onFinish: () -> Void
+  
   var body: some View {
     ZStack {
       GradientBackground()
@@ -36,10 +38,13 @@ struct SplashScreen: View {
         Spacer()
       }
     }
+    .onAppear {
+      onFinish()
+    }
   }
 }
 
 
 #Preview {
-  SplashScreen()
+  SplashScreen(onFinish: { })
 }
