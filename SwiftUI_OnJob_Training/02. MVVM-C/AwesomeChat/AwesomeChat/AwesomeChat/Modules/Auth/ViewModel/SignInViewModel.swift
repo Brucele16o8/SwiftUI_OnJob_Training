@@ -19,12 +19,12 @@ final class SignInViewModel: ObservableObject {
   /// --- Publishers
   var isUserEmailValidPublisher: AnyPublisher<Bool, Never> {
     $email
-      .map { email in self.isValidEmail(email) }
+      .map { self.isValidEmail($0) }
       .eraseToAnyPublisher()
   }
   var isUserPasswordValidPublisher: AnyPublisher<Bool, Never> {
     $password
-      .map { password in self.isValidPassword(password) }
+      .map { self.isValidPassword($0) }
       .eraseToAnyPublisher()
   }
   
@@ -35,7 +35,7 @@ final class SignInViewModel: ObservableObject {
   }
   
   init() {
-    
+    start()
   }
   
   func start() {
@@ -43,8 +43,6 @@ final class SignInViewModel: ObservableObject {
       .receive(on: DispatchQueue.main)
       .assign(to: &$isFormValid)
   }
-  
-  
   
   // MARK: -- Validation
   
@@ -64,13 +62,19 @@ final class SignInViewModel: ObservableObject {
   
   // MARK: -- Navigation
   
-  func navigateToSignUp() {
-    // TODO: - update code later
+  func navigateToHome() {
+    /// TODO: - update code later
     
     /// navigate directly to the HomeScreen for now
     let user = User(id: UUID(), userName: email, email: email, password: password)
     AuthenticationService.shared.status = .authenticated(user)
   }
-}
+  
+  func navigateToSignUp() {
+    /// navigate directly to the Sign Up
+    router?.route(to: \.pushToSignUp)
+  }
+  
+} /// 🧱
 
 

@@ -19,7 +19,7 @@ struct PrimaryButton: View {
         .fontWeight(.semibold)
         .frame(maxWidth: .infinity)
         .padding()
-        .background(isDisabled ? Color.gray : Color.blue)
+        .background(isDisabled ? Color.gray : Color.buttonBackground)
         .foregroundStyle(.white)
         .cornerRadius(10)
         .opacity(isDisabled ? 0.5 : 1.0)

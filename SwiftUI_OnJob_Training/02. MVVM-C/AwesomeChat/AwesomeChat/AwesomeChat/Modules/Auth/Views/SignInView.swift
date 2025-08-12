@@ -19,15 +19,17 @@ struct SignInView: View {
       Image("app-icon")
         .resizable()
         .scaledToFit()
-        .frame(width: 164, height: 164)
+        .frame(width: 124, height: 124)
         .shadow(radius: 6, x: 0, y: 6)
       
       Text("Experience Awesome Chat")
         .font(.custom("Lato-Thin", size: 26))
         .padding(.bottom)
       
-      Text("Sign in")
-        .font(.custom("Lato-Regular", size: 25))
+      /// First Sign in button
+      ClickableText(title: "Sign in",fontName: "Lato-Regular", fontSize: 25) {
+        /// do nothing for now
+      }
       
       Spacer()
         .frame(height: 32)
@@ -47,15 +49,39 @@ struct SignInView: View {
         bindingPassword: $viewModel.password
       )
       
-      Spacer()
+      
+      /// --- Forgot password
+      HStack {
+        Spacer()
+        ClickableText(title: "Forgot password?",fontName: "Lato-Regular", fontSize: 14) {
+          /// route to forgot password
+        }
+      }
+      .padding(.top, 8)
+      .padding(.bottom, 28)      
+      
+      /// --- Sign in
       PrimaryButton(
         title: "Sign in",
         isDisabled: !viewModel.isFormValid,
         action: {
-          viewModel.navigateToSignUp()
+          viewModel.navigateToHome()
         }
       )
+      
       Spacer()
+      Spacer()
+      /// Don't have any account
+      HStack(spacing: 6) {
+        Text("Don’t have an account?")
+          .foregroundStyle(.secondary)
+        ClickableText(title: "Sign up now",fontName: "Lato-Regular", fontSize: 14) {
+          viewModel.navigateToSignUp()
+        }
+      }
+      .font(.footnote)
+      .padding(.top, 16)
+      .frame(maxWidth: .infinity)
     }
     .padding(24)
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
