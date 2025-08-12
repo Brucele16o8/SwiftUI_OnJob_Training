@@ -14,7 +14,7 @@ final class AppCoordinator: NavigationCoordinatable {
   @Root var authenticated = makeAuthenticated
   
   @ViewBuilder
-  func SharedView(_ view: AnyView) -> some View {
+  func sharedView(_ view: AnyView) -> some View {
     view
       .onReceive(AuthenticationService.shared.$status) { status in
         switch status {
@@ -26,6 +26,14 @@ final class AppCoordinator: NavigationCoordinatable {
       }
   }
   
+  /// Override the optional customise method of the Stinsen
+  @ViewBuilder
+  func customize(_ view: AnyView) -> some View {
+    sharedView(view)
+  }
+  
+  
+  /// ** Initialisation
   init() {
     switch AuthenticationService.shared.status {
     case .authenticated:

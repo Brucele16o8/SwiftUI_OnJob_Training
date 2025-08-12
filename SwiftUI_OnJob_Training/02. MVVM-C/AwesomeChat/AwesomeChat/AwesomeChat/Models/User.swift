@@ -11,4 +11,5 @@ struct User: Codable, Equatable {
   let id: UUID
   let userName: String
   let email: String
+  let password: String
 }

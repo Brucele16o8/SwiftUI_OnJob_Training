@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Stinsen
 
 struct SignInView: View {
   @StateObject var viewModel = SignInViewModel()
@@ -49,9 +50,9 @@ struct SignInView: View {
       Spacer()
       PrimaryButton(
         title: "Sign in",
-        isDisabled: !viewModel.isValidLoginForm,
+        isDisabled: !viewModel.isFormValid,
         action: {
-          
+          viewModel.navigateToSignUp()
         }
       )
       Spacer()

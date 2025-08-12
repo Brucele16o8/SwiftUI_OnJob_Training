@@ -7,16 +7,46 @@
 
 import Foundation
 import Stinsen
+import Combine
 
 final class SignInViewModel: ObservableObject {
-  @RouterObject var router: AppCoordinator.Router?
+  @RouterObject var router: AuthCoordinator.Router?
   @Published var email: String = ""
   @Published var password: String = ""
-  var isValidLoginForm: Bool {
-    isValidEmail(email) && isValidPassword(password)
+  @Published var isFormValid: Bool = false
+  
+  private var subscriptions = Set<AnyCancellable>()
+  /// --- Publishers
+  var isUserEmailValidPublisher: AnyPublisher<Bool, Never> {
+    $email
+      .map { email in self.isValidEmail(email) }
+      .eraseToAnyPublisher()
+  }
+  var isUserPasswordValidPublisher: AnyPublisher<Bool, Never> {
+    $password
+      .map { password in self.isValidPassword(password) }
+      .eraseToAnyPublisher()
   }
   
-  // MARK: - Validation
+  var isSignInFromValidPulisher: AnyPublisher<Bool, Never> {
+    Publishers.CombineLatest(isUserEmailValidPublisher, isUserPasswordValidPublisher)
+      .map { $0 && $1 }
+      .eraseToAnyPublisher()
+  }
+  
+  init() {
+    
+  }
+  
+  func start() {
+    isSignInFromValidPulisher
+      .receive(on: DispatchQueue.main)
+      .assign(to: &$isFormValid)
+  }
+  
+  
+  
+  // MARK: -- Validation
   
   private func isValidEmail(_ email: String) -> Bool {
     // Basic email pattern
@@ -30,8 +60,17 @@ final class SignInViewModel: ObservableObject {
     return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
   }
   
-  // MARK: - Navigation
+  
+  
+  // MARK: -- Navigation
+  
   func navigateToSignUp() {
-//    router?.route(to: )
+    // TODO: - update code later
+    
+    /// navigate directly to the HomeScreen for now
+    let user = User(id: UUID(), userName: email, email: email, password: password)
+    AuthenticationService.shared.status = .authenticated(user)
   }
 }
+
+

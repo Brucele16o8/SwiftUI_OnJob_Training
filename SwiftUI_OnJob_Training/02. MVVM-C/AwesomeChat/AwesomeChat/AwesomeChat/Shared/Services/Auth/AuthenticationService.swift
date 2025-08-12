@@ -28,6 +28,8 @@ class AuthenticationService: ObservableObject {
     }
   }
   
+  
+  /// ** Identify the value for Status when laucnhing
   init() {
     if let user = UserDefaults.standard.loadUserDetails() {
       self.status = .authenticated(user)
