@@ -19,11 +19,15 @@ final class SignInViewModel: ObservableObject {
   /// --- Publishers
   var isUserEmailValidPublisher: AnyPublisher<Bool, Never> {
     $email
+      .removeDuplicates()
+      .debounce(for: .milliseconds(250), scheduler: DispatchQueue.main)
       .map { self.isValidEmail($0) }
       .eraseToAnyPublisher()
   }
   var isUserPasswordValidPublisher: AnyPublisher<Bool, Never> {
     $password
+      .removeDuplicates()
+      .debounce(for: .milliseconds(250), scheduler: DispatchQueue.main)
       .map { self.isValidPassword($0) }
       .eraseToAnyPublisher()
   }
