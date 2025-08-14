@@ -17,24 +17,24 @@ final class AppCoordinator: NavigationCoordinatable {
   
   var subscription = Set<AnyCancellable>()
   
-//  @ViewBuilder
-//  func sharedView(_ view: AnyView) -> some View {
-//    view
-//      .onReceive(AuthenticationService.shared.$status) { status in
-//        switch status {
-//        case .unauthenticated:
-//          self.root(\.unauthenticated)
-//        case .authenticated:
-//          self.root(\.authenticated)
-//        }
-//      }
-//  }
+  //  @ViewBuilder
+  //  func sharedView(_ view: AnyView) -> some View {
+  //    view
+  //      .onReceive(AuthenticationService.shared.$status) { status in
+  //        switch status {
+  //        case .unauthenticated:
+  //          self.root(\.unauthenticated)
+  //        case .authenticated:
+  //          self.root(\.authenticated)
+  //        }
+  //      }
+  //  }
   
-//  /// Override the optional customise method of the Stinsen
-//  @ViewBuilder
-//  func customize(_ view: AnyView) -> some View {
-//    sharedView(view)
-//  }
+  //  /// Override the optional customise method of the Stinsen
+  //  @ViewBuilder
+  //  func customize(_ view: AnyView) -> some View {
+  //    sharedView(view)
+  //  }
   
   
   /// ** Initialisation

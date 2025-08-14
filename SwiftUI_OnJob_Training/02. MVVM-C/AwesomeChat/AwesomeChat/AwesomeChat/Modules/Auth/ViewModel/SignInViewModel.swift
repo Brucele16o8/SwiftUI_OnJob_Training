@@ -20,20 +20,20 @@ final class SignInViewModel: ObservableObject {
   var isUserEmailValidPublisher: AnyPublisher<Bool, Never> {
     $email
       .removeDuplicates()
-      .debounce(for: .milliseconds(250), scheduler: DispatchQueue.main)
+
       .map { self.isValidEmail($0) }
       .eraseToAnyPublisher()
   }
   var isUserPasswordValidPublisher: AnyPublisher<Bool, Never> {
     $password
       .removeDuplicates()
-      .debounce(for: .milliseconds(250), scheduler: DispatchQueue.main)
       .map { self.isValidPassword($0) }
       .eraseToAnyPublisher()
   }
   
   var isSignInFromValidPulisher: AnyPublisher<Bool, Never> {
-    Publishers.CombineLatest(isUserEmailValidPublisher, isUserPasswordValidPublisher)
+    Publishers.CombineLatest(isUserEmailValidPublisher,
+                             isUserPasswordValidPublisher)
       .map { $0 && $1 }
       .eraseToAnyPublisher()
   }
@@ -44,6 +44,7 @@ final class SignInViewModel: ObservableObject {
   
   func start() {
     isSignInFromValidPulisher
+      .debounce(for: .milliseconds(250), scheduler: DispatchQueue.main)
       .receive(on: DispatchQueue.main)
       .assign(to: &$isFormValid)
   }
@@ -51,13 +52,13 @@ final class SignInViewModel: ObservableObject {
   // MARK: -- Validation
   
   private func isValidEmail(_ email: String) -> Bool {
-    // Basic email pattern
+    /// Basic email pattern
     let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
     return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
   }
   
   private func isValidPassword(_ password: String) -> Bool {
-    // At least 8 characters, 1 uppercase, 1 symbol
+    /// At least 8 characters, 1 uppercase, 1 symbol
     let passwordRegex = #"^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$"#
     return NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: password)
   }

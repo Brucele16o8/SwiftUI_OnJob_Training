@@ -7,6 +7,8 @@
 
 import Stinsen
 import SwiftUI
+import Domain
+import Platform
 
 final class HomeCoordinator: NavigationCoordinatable {
   var stack: Stinsen.NavigationStack<HomeCoordinator> = NavigationStack(initial: \.start)
@@ -14,6 +16,7 @@ final class HomeCoordinator: NavigationCoordinatable {
   @Root var start = makeStart
   
   func makeStart() -> some View {
-    return HomeView(viewModel: HomeViewModel())
+    let homeUseCase = UseCaseProvider.makeHomeUseCase()
+    return HomeView(viewModel: HomeViewModel(homeUseCase: homeUseCase))
   }
 } /// ✅

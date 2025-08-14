@@ -45,8 +45,8 @@ struct TextFieldFormPassword: View {
         Rectangle()
           .frame(height: 1)
           .foregroundColor(.gray.opacity(0.8))
-          .padding(.top, 40)
-        , alignment: .bottom
+          .padding(.top, 40),
+        alignment: .bottom
       )
     }
   }

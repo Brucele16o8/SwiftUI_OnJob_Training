@@ -17,7 +17,7 @@ struct SplashScreen: View {
         Spacer()
         
         /// --- Icon
-        Image("splash-screen-icon")
+        Image(.splashScreenIcon)
           .resizable()
           .scaledToFit()
           .frame(width: 164, height: 164)

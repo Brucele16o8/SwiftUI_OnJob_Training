@@ -16,7 +16,7 @@ struct SignInView: View {
       Spacer()
       
       /// --- Icon
-      Image("app-icon")
+      Image(.appIcon)
         .resizable()
         .scaledToFit()
         .frame(width: 124, height: 124)
