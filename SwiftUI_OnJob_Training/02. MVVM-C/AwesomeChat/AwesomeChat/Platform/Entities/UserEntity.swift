@@ -9,10 +9,12 @@ import Foundation
 import Domain
 
 struct UserEntity: Domain.UserEntity {
-  var id: String
-  var userName: String
-  var email: String
-  var password: String
+  let id: String
+  let userName: String
+  let email: String
+  let password: String
+  let gender: String?
+  let phoneNumber: String?
 }
 
 // =====
@@ -21,14 +23,18 @@ extension UserEntity {
     return UserEntity(id: "123",
                       userName: "Mark Swift",
                       email: "markswift@gmail.com",
-                      password: "123456")
+                      password: "123456",
+                      gender: "Male",
+                      phoneNumber: "+14562578901")
   }
   
   static func entity() -> UserEntity {
     return UserEntity(id: "123",
-                      userName: "Mark Swift",
+                      userName: "Mark Swift",x
                       email: "markswift@gmail.com",
-                      password: "123456")
+                      password: "123456",
+                      gender: "Male",
+                      phoneNumber: "+14862578999")
   }
   
 } /// 🧱

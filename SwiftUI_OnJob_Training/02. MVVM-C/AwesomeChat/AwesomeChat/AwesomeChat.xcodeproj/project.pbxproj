@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		533631842E474EED00BF80E5 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 533631832E474EED00BF80E5 /* Stinsen */; };
-		5336318F2E47591A00BF80E5 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 5336318E2E47591A00BF80E5 /* Swinject */; };
+		534332ED2E5387610024DFD4 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 534332EC2E5387610024DFD4 /* Swinject */; };
+		534332F02E53876A0024DFD4 /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = 534332EF2E53876A0024DFD4 /* Stinsen */; };
 		538766DC2E4DA1AE00FCB355 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538766D42E4DA1AE00FCB355 /* Domain.framework */; };
 		538766DD2E4DA1AE00FCB355 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 538766D42E4DA1AE00FCB355 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		538766FA2E4DB5D400FCB355 /* Platform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 538766F22E4DB5D400FCB355 /* Platform.framework */; };
@@ -110,9 +110,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				538766DC2E4DA1AE00FCB355 /* Domain.framework in Frameworks */,
-				533631842E474EED00BF80E5 /* Stinsen in Frameworks */,
-				5336318F2E47591A00BF80E5 /* Swinject in Frameworks */,
 				538766FA2E4DB5D400FCB355 /* Platform.framework in Frameworks */,
+				534332ED2E5387610024DFD4 /* Swinject in Frameworks */,
+				534332F02E53876A0024DFD4 /* Stinsen in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,8 +202,8 @@
 			);
 			name = AwesomeChat;
 			packageProductDependencies = (
-				533631832E474EED00BF80E5 /* Stinsen */,
-				5336318E2E47591A00BF80E5 /* Swinject */,
+				534332EC2E5387610024DFD4 /* Swinject */,
+				534332EF2E53876A0024DFD4 /* Stinsen */,
 			);
 			productName = AwesomeChat;
 			productReference = 53362CED2E47284600BF80E5 /* AwesomeChat.app */;
@@ -288,8 +288,8 @@
 			mainGroup = 53362CE42E47284600BF80E5;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				533631822E474EED00BF80E5 /* XCRemoteSwiftPackageReference "Stinsen" */,
-				5336318D2E47591A00BF80E5 /* XCRemoteSwiftPackageReference "Swinject" */,
+				534332EB2E5387610024DFD4 /* XCRemoteSwiftPackageReference "Swinject" */,
+				534332EE2E53876A0024DFD4 /* XCRemoteSwiftPackageReference "Stinsen" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 53362CEE2E47284600BF80E5 /* Products */;
@@ -727,15 +727,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		533631822E474EED00BF80E5 /* XCRemoteSwiftPackageReference "Stinsen" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rundfunk47/Stinsen";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.13;
-			};
-		};
-		5336318D2E47591A00BF80E5 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+		534332EB2E5387610024DFD4 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
 			requirement = {
@@ -743,18 +735,26 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		534332EE2E53876A0024DFD4 /* XCRemoteSwiftPackageReference "Stinsen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rundfunk47/Stinsen";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.13;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		533631832E474EED00BF80E5 /* Stinsen */ = {
+		534332EC2E5387610024DFD4 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 533631822E474EED00BF80E5 /* XCRemoteSwiftPackageReference "Stinsen" */;
-			productName = Stinsen;
-		};
-		5336318E2E47591A00BF80E5 /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5336318D2E47591A00BF80E5 /* XCRemoteSwiftPackageReference "Swinject" */;
+			package = 534332EB2E5387610024DFD4 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		534332EF2E53876A0024DFD4 /* Stinsen */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 534332EE2E53876A0024DFD4 /* XCRemoteSwiftPackageReference "Stinsen" */;
+			productName = Stinsen;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

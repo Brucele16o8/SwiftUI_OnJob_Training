@@ -8,5 +8,7 @@
 import Foundation
 
 public protocol HomeUseCase {
-  func fetchUser() async throws -> any UserEntity
+  func getUser() async throws -> any UserEntity
+  func getJobList() async throws -> [JobEntity]
+  func getImages() async throws -> [ImageEntity]
 }

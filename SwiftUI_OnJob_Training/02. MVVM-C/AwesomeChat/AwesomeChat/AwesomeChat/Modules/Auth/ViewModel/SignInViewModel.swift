@@ -20,7 +20,6 @@ final class SignInViewModel: ObservableObject {
   var isUserEmailValidPublisher: AnyPublisher<Bool, Never> {
     $email
       .removeDuplicates()
-
       .map { self.isValidEmail($0) }
       .eraseToAnyPublisher()
   }

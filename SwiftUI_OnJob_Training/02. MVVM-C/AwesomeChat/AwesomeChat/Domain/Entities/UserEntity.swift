@@ -9,9 +9,10 @@ import Foundation
 
 
 public protocol UserEntity: Identifiable, Codable {
-  var id: String { get set }
-  var userName: String { get set }
-  var email: String { get set }
-  var password: String { get set }
-
+  var id: String { get }
+  var userName: String { get }
+  var email: String { get }
+  var password: String { get }
+  var gender: String? { get }
+  var phoneNumber: String? { get }
 }

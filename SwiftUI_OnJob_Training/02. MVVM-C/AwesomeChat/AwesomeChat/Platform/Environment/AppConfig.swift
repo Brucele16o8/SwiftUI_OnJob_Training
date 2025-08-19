@@ -8,11 +8,16 @@
 class AppConfig {
   static let shared = AppConfig()
   
-  enum ConfigurationEnvironment {
-    case mock
-    case debug
-    case test
+  var configuration: BuildConfiguration {
+//#if MOCK
+//    return .mock
+//#elseif STAGING
+//    return .dev
+//#else
+//    return .prod
+//#endif
+    
+    /// temporary return MOCK for now
+    return .mock
   }
-  
-  var configuration: ConfigurationEnvironment = .debug
 } /// 🧱

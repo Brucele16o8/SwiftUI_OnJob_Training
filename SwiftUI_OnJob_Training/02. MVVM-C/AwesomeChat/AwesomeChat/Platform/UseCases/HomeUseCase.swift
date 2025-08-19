@@ -15,7 +15,7 @@ final class HomeUseCase: Domain.HomeUseCase {
     self.userRepository = userRepository
   }
   
-  func fetchUser() async throws -> any Domain.UserEntity {
+  func getUser() async throws -> any Domain.UserEntity {
     try await userRepository.fetchUser()
   }
 
