@@ -19,7 +19,7 @@ public struct UploadParams {
 
 public struct UploadContent: Encodable {
   public var fileUrl: String?
-  public var bundle: APIBundle = .upload
+  public var bundle: APIBundle = UploadAPIClient()
   
   public init(fileUrl: String?) {
     self.fileUrl = fileUrl

@@ -9,6 +9,14 @@ import Foundation
 import Domain
 
 final class HomeUseCase: Domain.HomeUseCase {
+  func getJobList() async throws -> [any Domain.JobEntity] {
+    return []
+  }
+  
+  func getImages() async throws -> [any Domain.ImageEntity] {
+    return []
+  }
+  
   private let userRepository: Domain.UserRepository
   
   init(userRepository: Domain.UserRepository) {

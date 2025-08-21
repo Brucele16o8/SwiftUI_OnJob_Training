@@ -30,7 +30,7 @@ extension UserEntity {
   
   static func entity() -> UserEntity {
     return UserEntity(id: "123",
-                      userName: "Mark Swift",x
+                      userName: "Mark Swift",
                       email: "markswift@gmail.com",
                       password: "123456",
                       gender: "Male",
