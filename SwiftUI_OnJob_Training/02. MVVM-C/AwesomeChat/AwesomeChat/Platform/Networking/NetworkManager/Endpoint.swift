@@ -19,6 +19,7 @@ public typealias Endpoint = EndpointType
 
 public protocol EndpointType {
   var httpMethod: HttpMethod { get }
+  var path: String { get }
   var parameters: [String: Any] { get }
 }
 
@@ -26,17 +27,15 @@ struct uploadEndpoint: EndpointType {
   let param: UploadParams
   
   var httpMethod: HttpMethod = .post
+  var path: String { "upload" }
   var parameters: [String : Any] {
-    var params: [String: Any] = [:]
-    if let json = try? param.params.toJSON() as? [String: Any] {
-        params.merge(json, uniquingKeysWith: {_, _ in true })
-    }
-    return params
+    (try? param.params.toJSON() as? [String: Any]) ?? [:]
   }
 }
 
 struct sampleDataEndpoint: EndpointType {
   var httpMethod: HttpMethod = .get
+  var path: String { "samples" }
   var parameters: [String : Any] {
     ["limit": 10]
   }

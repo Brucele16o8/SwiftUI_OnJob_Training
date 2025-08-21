@@ -4,22 +4,18 @@
 //
 //  Created by Tung Le on 19/8/2025.
 //
+import Foundation
 
 public typealias APIBundle = APIBundleService
 
 public protocol APIBundleService {
   var baseURL: String { get }
-  func path(for endpoint: Endpoint) -> String
 }
 
-/// upload API
-struct UploadAPIClient: APIBundleService {
+/// API
+struct GetAPIClient: APIBundleService {
   var baseURL: String {
     return "https://api.thecatapi.com/v1/images"
-  }
-  
-  func path(for endpoint: Endpoint) -> String {
-    return ""
   }
 }
 
@@ -27,10 +23,6 @@ struct UploadAPIClient: APIBundleService {
 struct SampleAPIClient: APIBundleService {
   var baseURL: String {
     return ""
-  }
-  
-  func path(for endpoint: Endpoint) -> String {
-    return "search"
   }
 }
 
@@ -52,8 +44,8 @@ struct SampleAPIClient: APIBundleService {
 //  }
 //  
 //}
-
-
+//
+//
 //public extension APIBundle {
 //  func path(for endpoint: Endpoint) -> String {
 //    switch endpoint {

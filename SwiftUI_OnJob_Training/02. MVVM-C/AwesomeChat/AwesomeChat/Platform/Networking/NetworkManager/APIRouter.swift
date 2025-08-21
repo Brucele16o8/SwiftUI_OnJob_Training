@@ -13,7 +13,7 @@ public struct APIRouter {
   
   // MARK: - URLRequestConvertible
   public func asURLRequest() throws -> URLRequest {
-    let path = bundle.path(for: endpoint)
+    let path = endpoint.path
     let baseURL = bundle.baseURL
     let fullURL = "\(baseURL)/\(path)"
     

@@ -10,6 +10,7 @@ import Foundation
 struct APIConfig {
   static let apiKey = ""
   static let encodeKey = ""
+  static let accept: String = "application/json"
   
   static let timeoutInterval: TimeInterval = 30
   
@@ -31,6 +32,7 @@ extension APIConfig {
   enum HttpHeaderField: String, CaseIterable {
     case apiKey
     case encodeKey
+    case accept = "Accept"
     
     var content: String {
       switch self {
@@ -38,6 +40,8 @@ extension APIConfig {
         return APIConfig.apiKey
       case .encodeKey:
         return APIConfig.encodeKey
+      case .accept:
+        return APIConfig.accept
       }
     }
   }
