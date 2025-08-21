@@ -13,7 +13,7 @@ public protocol APIBundleService {
 }
 
 /// API
-struct GetAPIClient: APIBundleService {
+struct UploadAPIClient: APIBundleService {
   var baseURL: String {
     return "https://api.thecatapi.com/v1/images"
   }
