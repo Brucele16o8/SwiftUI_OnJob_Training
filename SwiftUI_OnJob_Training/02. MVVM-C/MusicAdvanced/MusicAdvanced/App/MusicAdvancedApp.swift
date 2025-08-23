@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Stinsen
 
 @main
 struct MusicAdvancedApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      NavigationViewCoordinator(AppCoordinator())
+        .view()
     }
+  }
 }
